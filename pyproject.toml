@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "expense-record"
+version = "0.1.0"
+description = "Django training project"
+authors = ["Andrés Martínez <amartinez@stackbuilders.com>"]
+readme = "README.md"
+packages = [{include = "expense_record"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+django = "^4.1.3"
+psycopg2-binary = "^2.9.5"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
