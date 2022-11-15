@@ -10,3 +10,10 @@ class Spender(models.Model):
 
     def __str__(self):
         return self.nickname
+
+
+class Expense(models.Model):
+    spender = models.ForeignKey(Spender, on_delete=models.CASCADE)
+    description = models.CharField(max_length=200)
+    value = models.DecimalField(max_digits=7, decimal_places=2)
+    spending_date = models.DateTimeField('date of spending')
