@@ -16,4 +16,7 @@ class Expense(models.Model):
     spender = models.ForeignKey(Spender, on_delete=models.CASCADE)
     description = models.CharField(max_length=200)
     value = models.DecimalField(max_digits=7, decimal_places=2)
-    spending_date = models.DateTimeField('date of spending')
+    spending_date = models.DateField('date of spending')
+
+    def __str__(self):
+        return self.description
