@@ -38,15 +38,7 @@ class SpenderListView(ListView):
 class SpenderDetailView(DetailView):
 
     model = Spender
-
-
-    def get_object(self):
-        slug = self.kwargs['slug']
-        try:
-           d_obj = Spender.objects.get(id=int(slug))
-        except Spender.DoesNotExist:
-            d_obj = None
-        return d_obj
+    slug_field = "id"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
