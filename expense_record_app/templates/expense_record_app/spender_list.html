@@ -1,0 +1,10 @@
+<h1>Spenders:</h1>
+{% if object_list %}
+    <ul>
+    {% for spender in object_list %}
+        <li><a href="/expenses/{{ spender.id }}/">{{ spender.nickname }}</a> (<a href="/{{ spender.id }}/">Details</a>)</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No spenders registered.</p>
+{% endif %}
