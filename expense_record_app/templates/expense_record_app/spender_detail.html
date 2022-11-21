@@ -1,8 +1,11 @@
-{% if object %}
-    <h1>{{ object.full_name }}</h1>
-    <p>@{{ object.nickname }}</p>
-    <p>Email: {{ object.email }}</p>
-{% else %}
-    <p>No spender registered.</p>
-{% endif %}
-<a href="/">Back</a>
+{% extends "base.html" %}
+
+{% block content %}
+    {% if object %}
+        <h1>{{ object.full_name }}</h1>
+        <p>@{{ object.nickname }}</p>
+        <p>Email: {{ object.email }}</p>
+    {% else %}
+        <p>No spender registered.</p>
+    {% endif %}
+{% endblock %}

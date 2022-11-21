@@ -1,11 +1,15 @@
-<h1>{{ spender_name }} expenses:</h1>
-{% if expenses_list %}
-    <ul>
-    {% for expense in expenses_list %}
-        <li>{{ expense.description }} - ${{ expense.value }} ({{ expense.spending_date|date }})</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No expenses registered.</p>
-{% endif %}
-<a href="/">Back</a>
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>{{ spender_name }} expenses:</h1>
+    {% if expenses_list %}
+        <ul>
+        {% for expense in expenses_list %}
+            <li>{{ expense.description }} - ${{ expense.value }} ({{ expense.spending_date|date }})</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No expenses registered.</p>
+    {% endif %}
+    <h4>Total expenses: {{ expenses_list.count }}</h4>
+{% endblock %}

@@ -1,10 +1,14 @@
-<h1>Spenders:</h1>
-{% if object_list %}
-    <ul>
-    {% for spender in object_list %}
-        <li><a href="{% url 'expense_record:expenses-by-spender' spender.id %}">{{ spender.nickname }}</a> (<a href="{% url 'expense_record:detail' spender.id %}">Details</a>)</li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No spenders registered.</p>
-{% endif %}
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Spenders:</h1>
+    {% if object_list %}
+        <ul>
+        {% for spender in object_list %}
+            <li><a href="{% url 'expense_record:expenses-by-spender' spender.id %}">{{ spender.nickname }}</a> (<a href="{% url 'expense_record:detail' spender.id %}">Details</a>)</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No spenders registered.</p>
+    {% endif %}
+{% endblock %}
