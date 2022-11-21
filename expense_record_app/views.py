@@ -8,9 +8,7 @@ from .models import Spender, Expense
 
 
 def index(request):
-    spenders_list = Spender.objects.all()
-    context = {'spenders_list': spenders_list}
-    return render(request, 'spender/index.html', context)
+    return render(request, 'index.html')
 
 
 def expenses_by_spender(request, spender_id):
@@ -39,6 +37,16 @@ class SpenderDetailView(DetailView):
 
     model = Spender
     slug_field = "id"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['now'] = timezone.now()
+        return context
+
+
+class ExpenseListView(ListView):
+
+    model = Expense
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
