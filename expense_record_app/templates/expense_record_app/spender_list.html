@@ -2,7 +2,7 @@
 {% if object_list %}
     <ul>
     {% for spender in object_list %}
-        <li><a href="/expenses/{{ spender.id }}/">{{ spender.nickname }}</a> (<a href="/{{ spender.id }}/">Details</a>)</li>
+        <li><a href="{% url 'expense_record:expenses' spender.id %}">{{ spender.nickname }}</a> (<a href="{% url 'expense_record:detail' spender.id %}">Details</a>)</li>
     {% endfor %}
     </ul>
 {% else %}
