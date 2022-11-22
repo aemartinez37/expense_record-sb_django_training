@@ -12,4 +12,6 @@
         <p>No expenses registered.</p>
     {% endif %}
     <h4>Total expenses: {{ expenses_list.count }}</h4>
+    <br>
+    <a href="{% url 'expense_record:expenses-new' spender_id %}">Register expense</a>
 {% endblock %}

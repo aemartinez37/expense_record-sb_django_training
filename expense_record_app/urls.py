@@ -11,4 +11,6 @@ urlpatterns = [
     path('expenses/', ExpenseListView.as_view(), name='expenses'),
     path('expenses/spender/<int:spender_id>/',
          views.expenses_by_spender, name='expenses-by-spender'),
+    path('expenses/spender/new/<int:spender_id>/',
+         views.expense_form, name='expenses-new'),
 ]
