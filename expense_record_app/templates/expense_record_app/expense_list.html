@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Expenses:</h1>
+    {% if object_list %}
+    <table id="expenses">
+        <tr>
+            <th>Spender</th>
+            <th>Desription</th>
+            <th>Value</th>
+            <th>Date</th>
+        </tr>
+        {% for expense in object_list %}
+        <tr>
+            <td>@{{ expense.spender }}</td>
+            <td>{{ expense.description }}</td>
+            <td>${{ expense.value }}</td>
+            <td>{{ expense.spending_date|date }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+        <p>No expenses registered.</p>
+    {% endif %}
+    <h4>Total expenses: {{ object_list.count }}</h4>
+{% endblock %}

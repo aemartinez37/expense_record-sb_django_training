@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>New expense ({{ spender_nickname }}):</h1>
+    <form action="{% url 'expense_record:expenses-new' spender_id %}" method="post">
+        {% csrf_token %}
+        {{ form.as_ul }}
+        <input type="submit" value="Save Expense">
+    </form>
+{% endblock %}
