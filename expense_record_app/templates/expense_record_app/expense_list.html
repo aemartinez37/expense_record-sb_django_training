@@ -2,7 +2,7 @@
 
 {% block content %}
     <h1>Expenses:</h1>
-    {% if object_list %}
+    {% if expenses_list %}
     <table id="expenses">
         <tr>
             <th>Spender</th>
@@ -10,7 +10,7 @@
             <th>Value</th>
             <th>Date</th>
         </tr>
-        {% for expense in object_list %}
+        {% for expense in expenses_list %}
         <tr>
             <td>@{{ expense.spender }}</td>
             <td>{{ expense.description }}</td>
@@ -22,5 +22,5 @@
     {% else %}
         <p>No expenses registered.</p>
     {% endif %}
-    <h4>Total expenses: {{ object_list.count }}</h4>
+    <h4>Total expenses: {{ expenses_list.count }}</h4>
 {% endblock %}
