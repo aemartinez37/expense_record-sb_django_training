@@ -1,4 +1,7 @@
+import datetime
+
 from django.db import models
+from django.utils import timezone
 
 # Create your models here.
 
@@ -20,3 +23,7 @@ class Expense(models.Model):
 
     def __str__(self):
         return self.description
+
+    def is_recent_expense(self):
+        now = timezone.now()
+        return now - datetime.timedelta(days=1) <= self.spending_date <= now

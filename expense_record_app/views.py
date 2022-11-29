@@ -77,9 +77,14 @@ class SpenderDetailView(DetailView):
 
 class ExpenseListView(ListView):
 
-    model = Expense
+    template_name = 'expense_record_app/expense_list.html'
+    context_object_name = 'expenses_list'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['now'] = timezone.now()
-        return context
+    def get_queryset(self):
+        """
+        Return all expenses (not including those set to be
+        spent in the future).
+        """
+        return Expense.objects.filter(
+            spending_date__lte=timezone.now()
+        ).order_by('-spending_date')
